@@ -1,4 +1,4 @@
 <?php
-  	echo 'Hello, world!';
-	
-	echo 'Current date: '.date('Y-m-d-');
+  	echo 'Hello, world!\n';
+	echo 'Current date: '.date("F j, Y g:i a");
+?>
