@@ -1,6 +1,7 @@
-runtime: php55
+runtime: python27
 api_version: 1
+threadsafe: true
 
 handlers:
-- url: /.*
-  script: helloworld.php
+-   url: /.*
+    script: demo.app
