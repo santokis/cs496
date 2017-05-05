@@ -1,4 +1,5 @@
-runtime: php55
+#runtime: php55
+runtime: python27
 api_version: 1
 
 handlers:
