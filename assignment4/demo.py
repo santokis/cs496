@@ -4,10 +4,10 @@ import requests
 
 app = flask.Flask(__name__)
 
-CLIENT_ID = '123456789.apps.googleusercontent.com'
-CLIENT_SECRET = 'abc123'  # Read from a file or environmental variable in a real app
-SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly'
-REDIRECT_URI = 'http://example.com/oauth2callback'
+CLIENT_ID = '591609081019-91ofhlko8vmuq1us1cu3tgbdsao761mv.apps.googleusercontent.com'
+CLIENT_SECRET = '3PdjI0tfRg74a3uBdSpB6_LZ'  # Read from a file or environmental variable in a real app
+SCOPE = 'https://www.googleapis.com/auth/plus.metadata.readonly'
+REDIRECT_URI = 'https://assignment4-166505.appspot.com/oauth'
 
 @app.route('/')
 def index():
