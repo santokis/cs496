@@ -15,7 +15,7 @@
 		</p>
 	</div>
 	<div>
-		<a href="https://oauthdemo-166423.appspot.com/signin">Google Auth</a>
+		<a href="https://cs496-gettingstarted-163606.appspot.com/">Google Auth</a>
 	</div>
 </body>
 </html>
