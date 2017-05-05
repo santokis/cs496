@@ -4,8 +4,8 @@ api_version: 1
 threadsafe: true
 
 handlers:
-#- url: /.*
-#  script: main.php
+- url: /
+  script: main.php
 
-- url: /.*
+- url: /oauth
   script: demo.app
