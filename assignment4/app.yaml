@@ -2,5 +2,8 @@ runtime: php55
 api_version: 1
 
 handlers:
-- url: /.*
-  script: main.php
+#- url: /.*
+#  script: main.php
+
+- url: /oauth
+  script: demo.app
