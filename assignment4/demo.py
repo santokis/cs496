@@ -7,7 +7,6 @@ class OauthHandler(webapp2.RequestHandler):
   def get(self):
     get1 = repr(self.request.GET);
     logging.debug('The contents of the GET request are:' + get1)
-    self.response.write(get1);
 
 class MainPage(webapp2.RequestHandler):
 	def get(self):
