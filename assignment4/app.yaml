@@ -1,11 +1,10 @@
-#runtime: php55
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
 - url: /
-  script: main.php
+  script: demo.app
 
 - url: /oauth
   script: demo.app
