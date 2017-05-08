@@ -54,18 +54,25 @@ class OAuthHandler(webapp2.RequestHandler):
 		head = {'Authorization':'Bearer ' + token}
 		result = urlfetch.fetch(url=infoUrl, headers=head, method='GET')
 		resultData = json.loads(result.content)
-		userName = resultData['displayName']
-		userUrl = resultData['url']
-		
-		#####DEBUG#####
-		#self.response.write(result.content)
-		#self.response.write(userName)
-		#self.response.write(userUrl)
+		gPlusUser = resultData['isPlusUser']
 
-		#http://webapp2.readthedocs.io/en/latest/tutorials/gettingstarted/templates.html
-		template_values = {'userName':userName,'userUrl':userUrl,'userVar':code}
-		path = os.path.join(os.path.dirname(__file__), 'main.html')
-		self.response.out.write(template.render(path, template_values))
+		#error handling if user does not have a google+ profile
+		if gPlusUser:
+			userName = resultData['displayName']
+			userUrl = resultData['url']
+			#http://webapp2.readthedocs.io/en/latest/tutorials/gettingstarted/templates.html
+			template_values = {'userName':userName,'userUrl':userUrl,'userVar':code}
+			path = os.path.join(os.path.dirname(__file__), 'main.html')
+			self.response.out.write(template.render(path, template_values))
+
+			#####DEBUG#####
+			#self.response.write(result.content)
+			#self.response.write(userName)
+			#self.response.write(userUrl)
+		else:
+			template_values = {}
+			path = os.path.join(os.path.dirname(__file__), 'error.html')
+			self.response.out.write(template.render(path, template_values))
 
 class LoginPage(webapp2.RequestHandler):
 	def get(self):
@@ -73,8 +80,6 @@ class LoginPage(webapp2.RequestHandler):
 		authUrl = authPath+'?response_type='+responseType+'&client_id='+clientId+'&redirect_uri='+redirectUri+'&scope='+scope+'&state='+state
 		head = {'Content-Type':'text/plain'}
 		result = urlfetch.fetch(url=authUrl, headers=head, method='GET')
-
-		#####DEBUG#####
 		self.response.write(result.content)
 
 class MainPage(webapp2.RequestHandler):
